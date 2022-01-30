@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<div>
+  <h3>Title:  {{ item.title }}   </h3>
+  <br>
+    <p>Composer Last: {{ item.composer_last }}</p>
+    <p>Composer First: {{ item.composer_first }}</p>
+    <p>Arranger Last: {{ item.arranger_last }}</p>
+    <p>Arranger First: {{ item.arranger_first }}</p>
+    <p>Ensemble: {{ item.ensemble }}</p>
+    <p>Style: {{ item.style }}</p>
+    <p>Difficulty: {{ item.difficulty }}</p>
+    <p>Rating: {{ item.rating }}</p>
+    <p>Last Performed: {{ item.last_performed }}</p>
+    <p>Organized: {{ item.organized }}</p>
+    <p>Notes: {{ item.notes }}</p>
+    <p>Date Added: {{ item.created_on }}</p>
+  <b>
+  <form action="" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Delete</button>
+  </form>
+</div>
+{% endblock %}

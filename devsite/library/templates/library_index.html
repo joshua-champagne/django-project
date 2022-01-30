@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+{% if add_flag %}
+    <script>alert("New Record Successfully Added!")</script>
+{% endif %}
+
+{% if del_flag %}
+    <script>alert("Record Deleted!")</script>
+{% endif %}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Music Index</h2>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <a href="{% url 'library_add' %}"<button type="button" class="btn btn-sm btn-outline-secondary">Add</button></a>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Inventory #</th>
+          <th>Title</th>
+          <th>Composer Last</th>
+          <th>Composer First</th>
+          <th>Arranger Last</th>
+          <th>Arranger First</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.inventory_num }}</td>
+          <td><a href="{% url 'library_detail' item.pk %}">{{ item.title }}</a></td>
+          <td>{{ item.composer_last }}</td>
+          <td>{{ item.composer_first }}</td>
+          <td>{{ item.arranger_last }}</td>
+          <td>{{ item.arranger_first }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+{% endblock %}

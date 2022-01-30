@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<main>
+<div>
+  <h3>Add a New Record</h3>
+    <form action="library_add" method="post">
+      {% csrf_token %}
+        <div class="form-group">Inventory # {{ form.inventory_num}}</div>
+        <div class="form-group">Title{{ form.title }}</div>
+        <div class="form-group">Composer Last: {{ form.composer_last }}</div>
+        <div class="form-group">Composer First: {{ form.composer_first }}</div>
+        <div class="form-group">Arranger Last: {{ form.arranger_last }}</div>
+        <div class="form-group">Arranger First: {{ form.arranger_first }}</div>
+        <div class="form-group">Ensemble: {{ form.ensemble }}</div>
+        <div class="form-group">Style: {{ form.style }}</div>
+        <div class="form-group">Difficulty: {{ form.difficulty }}</div>
+        <div class="form-group">Rating: {{ form.rating }}</div>
+        <div class="form-group">Last Performed: {{ form.last_performed }}</div>
+        <div class="form-group">Organized: {{ form.organized }}</div>
+        <div class="form-group">Notes: {{ form.notes }}</div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</main>
+{% endblock %}
